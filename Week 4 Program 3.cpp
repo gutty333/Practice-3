@@ -12,7 +12,7 @@ using namespace std;
 
 
 // Partition function
-// THis function will rearrange all the values of the array so that it can create 2 sublist
+// This function will rearrange all the values of the array so that it can create 2 sublist
 // All the values less than the pivot are to the left
 // All the value greater than the pivot are to the right
 // By default the pivot will be the starting element of the array (arr[0])
