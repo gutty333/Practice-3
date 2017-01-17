@@ -39,7 +39,7 @@ class Rational
 
 	public:
 		Rational(int, int);
-		friend ostream &operator<<(ostream&, Rational*);
+		friend ostream& operator<<(ostream&, Rational*);
 		Rational* operator+(Rational);
 		Rational* operator*(Rational);
 		Rational* operator/(Rational);
