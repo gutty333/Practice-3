@@ -39,4 +39,169 @@ class Rational
 
 	public:
 		Rational(int, int);
+		friend ostream &operator<<(ostream&, Rational*);
+		Rational* operator+(Rational);
+		Rational* operator*(Rational);
+		Rational* operator/(Rational);
+		Rational* operator=(Rational*);
 };
+
+
+Rational::Rational(int x, int y)
+{
+	numerator = x;
+	denominator = y;
+	reduce();
+}
+
+// reduce method
+void Rational::reduce()
+{
+	int high;
+
+	if (numerator > denominator)
+	{
+		high = numerator;
+	}
+	else
+	{
+		high = denominator;
+	}
+
+	// Finding a common divisor
+	int divisor = 2;
+
+	while (divisor <= high)
+	{
+		if (numerator%divisor == 0 && denominator%divisor == 0)
+		{
+			numerator /= divisor;
+			denominator /= divisor;
+			divisor = 2;
+		}
+		else
+		{
+			divisor++;
+		}
+	}
+
+	if (denominator < 0)
+	{
+		denominator *= -1;
+		numerator *= -1;
+	}
+}
+
+// output operator overload
+ostream &operator<<(ostream& out, Rational* obj)
+{
+	out << obj->numerator << "/" << obj->denominator << endl;
+	return out;
+}
+
+
+// Operator Overload for Adding 
+// The Subtraction and other would be done the same  but different arithmetic operations
+Rational* Rational::operator+(Rational b)
+{
+	if (denominator > b.denominator)
+	{
+		// Finding a common denominator
+		if (denominator % b.denominator == 0)
+		{
+			int num = denominator / b.denominator;
+
+			b.denominator *= num;
+			b.numerator *= num;
+		}
+		else
+		{
+			int num = denominator;
+
+			denominator *= b.denominator;
+			numerator *= b.denominator;
+			b.numerator *= num;
+		}
+	}
+	else
+	{
+		// Finding a common denominator
+		if (b.denominator % denominator == 0)
+		{
+			int num = b.denominator / denominator;
+
+			denominator *= num;
+			numerator *= num;
+		}
+		else
+		{
+			int num = denominator;
+
+			denominator *= b.denominator;
+			numerator *= b.denominator;
+			b.numerator *= num;
+		}
+	}
+	numerator += b.numerator;
+	reduce();
+	return this;
+}
+// Multiplication
+Rational* Rational::operator*(Rational b)
+{
+	numerator *= b.numerator;
+	denominator *= b.denominator;
+	reduce();
+	return this;
+}
+// Division
+Rational* Rational::operator/(Rational b)
+{
+	numerator *= b.denominator;
+	denominator *= b.numerator;
+	reduce();
+	return this;
+}
+// Equal
+Rational* Rational::operator=(Rational* b)
+{
+	numerator = b->numerator;
+	denominator = b->denominator;
+	return this;
+}
+
+
+int main()
+{
+	Rational* test;
+
+
+	int x, y;
+
+	for (int i = 0; i < 5; i++)
+	{
+		cout << "Enter x and y: ";
+		cin >> x >> y;
+		test = new Rational(x, y);
+
+		Rational test2(1, 2);
+		
+		*test + test2;
+		cout << test;
+		
+		cout << "Enter x and y: ";
+		cin >> x >> y;
+		test = new Rational(x, y);
+		*test * test2;
+		cout << test;
+
+		cout << "Enter x and y: ";
+		cin >> x >> y;
+		test = new Rational(x, y);
+		Rational * test3;
+		test3 = *test / test2;
+		cout << test3 << endl;
+	}
+
+
+}
