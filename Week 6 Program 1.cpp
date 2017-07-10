@@ -110,10 +110,9 @@ ListNode* removeFirst(ListNode* node)
 
 	ListNode* temp = node;
 
-	if (temp->next != NULL)
-	{
-		temp = temp->next;
-	}
+	node = node->next;
+
+	delete(temp);
 
 	return node;
 }
