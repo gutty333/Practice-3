@@ -1,5 +1,4 @@
 ﻿  Queue.cpp
-c:\users\carlo\documents\github\practice-3\queue.cpp(2): fatal error C1083: Cannot open include file: 'Queue.h': No such file or directory
   lab8.cpp
-c:\users\carlo\documents\github\practice-3\lab8.cpp(2): fatal error C1083: Cannot open include file: 'Queue.h': No such file or directory
   Generating Code...
+  Practice Review C++ Part 5.vcxproj -> C:\Users\carlo\Documents\GitHub\Practice-3\Debug\Practice Review C++ Part 5.exe
