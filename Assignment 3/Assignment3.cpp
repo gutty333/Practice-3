@@ -1,140 +1,117 @@
-/********************************************************************
-	Program to create a fantasy combat game
-
-	See Assigment3.pdf file for full description of the program
-*********************************************************************/
-
 #include <iostream>
-#include <string>
 #include <ctime>
 #include "Creature.h"
-#include "Combat.h"
 #include "Barbarian.h"
-#include "Reptile.h"
+#include "ReptilePeople.h"
 #include "BlueMen.h"
 #include "Goblin.h"
-#include "Shadow.h"
+#include "TheShadow.h"
 using namespace std;
+
 
 
 int main()
 {
 	srand(time(0));
-	string line;
-	line.assign(50, '-');
+	cout << "Welcome to the battlefield" << endl;
 	int choice;
-	char choice2;
-	Creature* player = 0;
-	Creature* enemy = 0;
-	Combat battle;
 
 
 	do
 	{
-		cout << "Fantasy Combat Game" << endl;
-		cout << line << endl;
-		cout << "Please select your character: " << endl;
-		cout << "\t1.Barbarian" << endl;
-		cout << "\t2.Reptile People" << endl;
-		cout << "\t3.Blue Men" << endl;
-		cout << "\t4.Goblin" << endl;
-		cout << "\t5.Shadow" << endl;
+		Creature* player = NULL;
+		Creature* enemy = NULL;
+
+		// Character selection for the user
+		cout << endl << "Please select your character" << endl;
+		cout << "1. Barbarian" << endl;
+		cout << "2. Reptile People" << endl;
+		cout << "3. Blue Men" << endl;
+		cout << "4. Goblin" << endl;
+		cout << "5. The Shadow" << endl;
 		cin >> choice;
 
-		switch (choice)
+		if (choice == 1)
 		{
-			case 1:
-			{
-				player = new Barbarian;
-				break;
-			}	
-
-			case 2:
-			{
-				player = new Reptile;
-				break;
-			}
-
-			case 3:
-			{
-				player = new BlueMen;
-				break;
-			}
-
-			case 4:
-			{
-				player = new Goblin;
-				break;
-			}
-
-			case 5:
-			{
-				player = new Shadow;
-				break;
-			}
-
-			default:
-				cout << "Invalid Input" << endl;
+			player = new Barbarian;
 		}
-
-		cout << endl << "Which character type would you like to fight?" << endl;
-		cout << "\t1.Barbarian" << endl;
-		cout << "\t2.Reptile People" << endl;
-		cout << "\t3.Blue Men" << endl;
-		cout << "\t4.Goblin" << endl;
-		cout << "\t5.Shadow" << endl;
+		else if (choice == 2)
+		{
+			player = new ReptilePeople;
+		}
+		else if (choice == 3)
+		{
+			player = new BlueMen;
+		}
+		else if (choice == 4)
+		{
+			player = new Goblin;
+		}
+		else if (choice == 5)
+		{
+			player = new TheShadow;
+		}
+		
+		// Character selection for the enemy
+		cout << "Please select the enemy you will face" << endl;
+		cout << "1. Barbarian" << endl;
+		cout << "2. Reptile People" << endl;
+		cout << "3. Blue Men" << endl;
+		cout << "4. Goblin" << endl;
+		cout << "5. The Shadow" << endl;
 		cin >> choice;
 
-		switch (choice)
+		if (choice == 1)
 		{
-			case 1:
-			{
-				enemy = new Barbarian;
-				break;
-			}
-
-			case 2:
-			{
-				enemy = new Reptile;
-				break;
-			}
-
-			case 3:
-			{
-				enemy = new BlueMen;
-				break;
-			}
-
-			case 4:
-			{
-				enemy = new Goblin;
-				break;
-			}
-
-			case 5:
-			{
-				enemy = new Shadow;
-				break;
-			}
-
-			default:
-				cout << "Invalid Input" << endl;
+			enemy = new Barbarian;
+		}
+		else if (choice == 2)
+		{
+			enemy = new ReptilePeople;
+		}
+		else if (choice == 3)
+		{
+			enemy = new BlueMen;
+		}
+		else if (choice == 4)
+		{
+			enemy = new Goblin;
+		}
+		else if (choice == 5)
+		{
+			enemy = new TheShadow;
 		}
 
-		cout << endl;
-		battle.fight(player, enemy);
+		// Fight simulation
+		// Both will take turn attacking and defending
+		// The loop will stop only when one of the characters have died
+		while (player->getAlive() && enemy->getAlive())
+		{
+			player->combat(enemy);
 
-		cout << endl << "Would you like to play again? (Y/N) ";
-		cin >> choice2;
-		cout << endl;
+			if (enemy->getAlive())
+			{
+				enemy->combat(player);
+			}
+		}
 
-		delete player;
-		player = 0;
-		delete enemy;
-		enemy = 0;
-	} while (toupper(choice2) == 'Y');
-	
-	cout << "Thank you for playing!" << endl;
+		// Showcasing the results
+		if (player->getAlive())
+		{
+			cout << endl << "Congratulation you won the battle as a " << player->getName() << endl;
+			cout << "Final health for the " << player->getName() << " is " << player->getHealth() << endl;
+		}
+		else
+		{
+			cout << endl << "Game over you lost the battle as a "<< player->getName() << endl;
+			cout << "Final health for the " << enemy->getName() << " is " << enemy->getHealth() << endl;
+		}
+
+		cout << "Thank you for playing" << endl;
+		cout << "Try again (1 = yes or 0 = no)" << endl;
+		cin >> choice;
+	} while (choice != 0);
+
 
 	return 0;
 }

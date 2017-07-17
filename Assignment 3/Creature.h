@@ -1,32 +1,41 @@
-// Creature base class
-// Will be an abstract class
+#include <iostream>
+#include <string>
+using namespace std;
 
 #ifndef CREATURE_H
 #define CREATURE_H
-#include "GameDice.h"
-#include <string>
-using namespace std;
+
 
 class Creature
 {
 	protected:
-		string type;
-		int armor;
+		string name;
 		int health;
-		int attackSides, attackDice;
-		int defenseSides, defenseDice;
-		bool achilles;
+		int armor;
+		int defenseSides;
+		int defenseRollCount;
+		int attackSides;
+		int attackRollCount;
+		bool alive;
+		bool specialAbility;
 
 	public:
 		Creature();
-		int getAttack();
-		int getDefense();
-		int getArmor();
-		void updateHealth(int);
+
+		string getName();
 		int getHealth();
-		string getType();
-		void setAchilles(bool);
-		bool getAchilles();
+		int getArmor();
+		int getDefenseSides();
+		int getDefenseRollCount();
+		int getAttackSides();
+		int getAttackRollCount();
+		bool getAlive();
+		bool getSpecialAbility();
+
+		void setHealth(int);
+		void setAlive(bool);
+
+		virtual void combat(Creature*);
 };
 
 #endif

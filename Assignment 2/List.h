@@ -1,20 +1,22 @@
+#include "Item.h"
+#include <vector>
 
 #ifndef LIST_H
 #define LIST_H
-#include <vector>
-#include "Item.h"
 
 class List
 {
-	private:
-		vector <Item> items;
+private:
+	double listTotal;
+	vector <Item> itemList;
 
-	public:
-		void addItem(Item);
-		void removeItem(Item);
-		void printList();
-		void displayReport();
-		bool operator==(Item);
+public:
+	List();
+	void addItem();
+	void removeItem();
+	void display();
+	bool operator==(string);
 };
 
-#endif
+
+#endif 

@@ -1,10 +1,9 @@
-// Barbarian child class
+#include "Creature.h"
 
 #ifndef BARBARIAN_H
 #define BARBARIAN_H
-#include "Creature.h"
 
-class Barbarian : public Creature
+class Barbarian:public Creature
 {
 	public:
 		Barbarian();

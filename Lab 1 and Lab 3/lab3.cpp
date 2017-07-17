@@ -1,22 +1,3 @@
-/***********************************************************
-You realize that your dice-rolling program (from lab 1) may be more complicated than needed. There
-is similarity between Die and LoadedDie. It would be better to use inheritance. You will create a
-class hierarchy to show the inheritance of LoadedDie from Die.
-
-For this assignment you will also need a Game class. The Game class will not be part of an is-a
-relation, but a has-a relation. The Game class will need to keep track of the type of dice for each
-of the 2 players, the number of rounds to play, and some way to maintain the score.
-
-You will design a program to play a simplified version of war, using dice instead of cards. There
-will be only one user, but 2 “players” for the game. You should give the user the option of setting
-the number of sides on the dice used, if one player or both are using regular or loaded dice, and
-the number of rounds to play. Your program will use the game class to determine which player won.
-Your program should print out which player won to the user. To play a game, for each round you roll
-a die of the appropriate type for each player. The higher result wins. If they are equal it is a
-draw.
-The winner of the game is the player who won the most rounds.
-************************************************************/
-
 #include <iostream>
 #include <string>
 #include <cctype>

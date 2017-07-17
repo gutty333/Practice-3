@@ -1,30 +1,3 @@
-/********************************************************************
-	File Filter
-
-	A file filter  reads  an  input  file, transforms it in some  way,  and  writes  the  results  to  an 
-	output file.  Write  an  abstract file  filter  class  that  defines  a  pure  virtual  function   for 
-	transforming  a  character.  Create   one  subclass   of  your   file  filter  class  that   performs 
-	encryption, another that  transforms a file to  all uppercase,  and  another that  creates  an
-	unchanged copy of the original file.
-
-	The class should have a member function
-	void doFilter(ifstream &in, ofstream &out)
-
-	that is called to perform  the actual filtering. The member function  for transforming a single
-	character should have the prototype
-
-	char transform(char ch)
-
-	The encryption  class should  have a constructor that  takes  an integer  as an argument and
-	uses it as the encryption  key.
-
-
-	File Double Spacer
-
-	Create a subclass of the abstract filter class of Programming Challenge 5 that double spaces
-	a file: that is, it inserts a blank  line between any two lines of the file.
-*********************************************************************/
-
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -73,14 +46,6 @@ class Original : public FileFilter
 		virtual char transform(char);
 };
 
-/*********************DoubleSpace Child Class********************************/
-class DoubleSpace : public FileFilter
-{
-	public:
-		DoubleSpace(string, string);
-		virtual char transform(char);
-};
-
 
 
 
@@ -106,7 +71,6 @@ Encrypt::Encrypt(string inName, string outName, int encryptKey) : FileFilter(inN
 }
 UpperCase::UpperCase(string inName, string outName) : FileFilter(inName, outName){}
 Original::Original(string inName, string outName) : FileFilter(inName, outName){}
-DoubleSpace::DoubleSpace(string inName, string outName) : FileFilter(inName, outName){}
 
 // Destructor
 FileFilter::~FileFilter()
@@ -150,19 +114,6 @@ char Original::transform(char letter)
 	return letter;
 }
 
-// Double Space Transform
-char DoubleSpace::transform(char letter)
-{
-	if (letter == '\n')
-	{
-		return '\n';
-	}
-	else
-	{
-		return letter;
-	}
-}
-
 
 int main()
 {
@@ -174,7 +125,7 @@ int main()
 	getline(cin, inFile);
 	input.open(inFile);
 
-	cout << "Enter the name of file to create: ";
+	cout << "Enter the name of file to create an original copy: ";
 	getline(cin, outFile);
 	output.open(outFile);
 	FileFilter* test = new Original(inFile, outFile);
@@ -182,25 +133,16 @@ int main()
 	test->doFilter(input, output);
 
 
-	//cout << endl<< "Enter the name of file to create: ";
-	//getline(cin, outFile);
-	//input.open(inFile);
-	//output.open(outFile);
-	//test = new UpperCase(inFile, outFile);
-	//cout << "Here we are making the new file all uppercase" << endl;
-	//test->doFilter(input, output);
-	
-
-	cout << endl << "Enter the name of file to create: ";
+	cout << endl<< "Enter the name of file to create a copy with uppercase: ";
 	getline(cin, outFile);
 	input.open(inFile);
 	output.open(outFile);
-	test = new DoubleSpace(inFile, outFile);
-	cout << "Here we are adding double space between new line" << endl;
+	test = new UpperCase(inFile, outFile);
+	cout << "Here we are making the new file all uppercase" << endl;
 	test->doFilter(input, output);
 
 
-	cout << endl << "Enter the name of file to create: ";
+	cout << endl << "Enter the name of file to create with encryption: ";
 	getline(cin, outFile);
 	input.open(inFile);
 	output.open(outFile);

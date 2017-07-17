@@ -1,22 +1,20 @@
-
 #include "Item.h"
 
-// Default Constructor
+// Constructors
 Item::Item()
 {
 	name = "";
-	unit = quantity = price = 0;
+	amount = unit = price = 0;
 }
-// Constructor Overload
-Item::Item(string n, int u, int total, double cost)
+Item::Item(string n, int u, int a, double p)
 {
-	name = n;
-	unit = u;
-	quantity = total;
-	price = cost;
+	setName(n);
+	setUnit(u);
+	setAmount(a);
+	setPrice(p);
 }
 
-// Setter Functions
+// Setter methods
 void Item::setName(string n)
 {
 	name = n;
@@ -25,23 +23,23 @@ void Item::setUnit(int u)
 {
 	unit = u;
 }
-void Item::setQuantity(int total)
+void Item::setAmount(int a)
 {
-	if (total < 0)
+	if (a < 0)
 	{
-		quantity = 0;
+		amount = 0;
 	}
 	else
 	{
-		quantity = total;
+		amount = a;
 	}
 }
-void Item::setPrice(double cost)
+void Item::setPrice(double p)
 {
-	price = cost;
+	price = p;
 }
 
-// Getter Functions
+// Getter methods
 string Item::getName()
 {
 	return name;
@@ -50,16 +48,25 @@ int Item::getUnit()
 {
 	return unit;
 }
-int Item::getQuantity()
+int Item::getAmount()
 {
-	return quantity;
+	return amount;
 }
 double Item::getPrice()
 {
 	return price;
 }
-// Total cost function
-double Item::totalPrice()
+double Item::getTotalPrice()
 {
-	return quantity * price;
+	return amount * price;
+}
+
+// print info method
+void Item::printInfo()
+{
+	cout << "Name: " << name << endl;
+	cout << "Unit: " << unit << endl;
+	cout << "Total: " << amount << endl;
+	cout << "Price: $" << price << endl;
+	cout << "Total Price: $" << getTotalPrice() << endl << endl;
 }
