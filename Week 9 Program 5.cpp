@@ -28,7 +28,21 @@ double, and string.
 
 #include <iostream>
 #include <string>
+#include <vector>
 using namespace std;
+
+
+// output template function
+template <class T>
+void output(vector <T> list)
+{
+	for (int x = 0; x < list.size(); x++)
+	{
+
+		cout << list[x] << endl;
+	}
+{
+
 
 int main()
 {

@@ -19,9 +19,60 @@ to compute the sum, and prints out the sum. The program than asks the user to en
 
 #include <iostream>
 #include <string>
+#include <vector>
 using namespace std;
+
+// accumulation template function
+template <class T>
+T accum(vector <T> list)
+{
+	T total;
+
+	for (int x = 0; x < list.size(); x++)
+	{
+		if (x == 0)
+		{
+			total = list[x];
+		}
+		else
+		{
+			total += list[x];
+		}
+		
+	}
+
+	return total;
+}
 
 int main()
 {
+	vector <int> numList;
+	vector <string> stringList;
 
+	int num;
+	string name;
+
+	for (int x = 0; x < 3; x++)
+	{
+		cout << "Enter a number " << endl;
+		cin >> num;
+
+		numList.push_back(num);
+	}
+
+	cout << "The sum of all values is " << accum(numList) << endl;
+	
+
+	for (int x = 0; x < 3; x++)
+	{
+		cout << "Enter a word" << endl;
+		cin >> name; 
+
+		stringList.push_back(name);
+	}
+
+	cout << "The sum of all values is " << accum(stringList) << endl;
+
+
+	return 0;
 }
