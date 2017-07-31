@@ -1,8 +1,2 @@
-﻿  lab9.cpp
-c:\users\carlo\documents\github\practice-3\lab 9\lab9.cpp(25): warning C4018: '<': signed/unsigned mismatch
-c:\users\carlo\documents\github\practice-3\lab 9\lab9.cpp(66): warning C4018: '<=': signed/unsigned mismatch
-c:\users\carlo\documents\github\practice-3\lab 9\lab9.cpp(90): warning C4018: '<': signed/unsigned mismatch
-c:\users\carlo\documents\github\practice-3\lab 9\lab9.cpp(110): warning C4018: '<': signed/unsigned mismatch
-c:\users\carlo\documents\github\practice-3\lab 9\lab9.cpp(175): warning C4018: '<': signed/unsigned mismatch
-c:\users\carlo\documents\github\practice-3\lab 9\lab9.cpp(193): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+﻿  Week 4 Program 3.cpp
   Practice Review C++ Part 5.vcxproj -> C:\Users\carlo\Documents\GitHub\Practice-3\Debug\Practice Review C++ Part 5.exe
