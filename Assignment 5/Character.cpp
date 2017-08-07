@@ -171,8 +171,8 @@ DarkKnight::DarkKnight()
 LastBoss::LastBoss()
 {
 	name = "Sauron";
-	attack = 8;
-	defense = 15;
+	attack = 15;
+	defense = 20;
 	health = 50;
 }
 
@@ -183,7 +183,7 @@ Player::Player()
 	name = "";
 	attack = 0;
 	defense = 0;
-	health = 8;
+	health = 20;
 	victory = false;
 }
 // Setter methods
@@ -233,7 +233,7 @@ void Player::viewItems()
 {
 	cout << endl << "You have a total of " << playerInventory.getSize() << " items in your inventory" << endl;
 
-	cout << "Here are all your current items" << endl;
+	cout << "Here are all your current items:" << endl;
 
 	playerInventory.showItems();
 }

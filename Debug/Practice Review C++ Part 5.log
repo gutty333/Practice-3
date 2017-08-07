@@ -1,5 +1,21 @@
-﻿  Room.cpp
-  Game.cpp
-  Character.cpp
-  Generating Code...
-  Practice Review C++ Part 5.vcxproj -> C:\Users\carlo\Documents\GitHub\Practice-3\Debug\Practice Review C++ Part 5.exe
+﻿Build started 8/7/2017 5:18:09 PM.
+     1>Project "C:\Users\gutty333\Documents\Visual Studio 2013\Projects\Practice Review C++ Part 5\Practice Review C++ Part 5\Practice Review C++ Part 5.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt "Assignment 5\Character.cpp" "Assignment 5\Item.cpp" "Assignment 5\Room.cpp"
+         Room.cpp
+         Item.cpp
+         Character.cpp
+         Generating Code...
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\gutty333\Documents\Visual Studio 2013\Projects\Practice Review C++ Part 5\Practice Review C++ Part 5\Debug\Practice Review C++ Part 5.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\gutty333\Documents\Visual Studio 2013\Projects\Practice Review C++ Part 5\Practice Review C++ Part 5\Debug\Practice Review C++ Part 5.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\gutty333\Documents\Visual Studio 2013\Projects\Practice Review C++ Part 5\Practice Review C++ Part 5\Debug\Practice Review C++ Part 5.lib" /MACHINE:X86 Debug\Assignment5.obj
+         Debug\Character.obj
+         Debug\Game.obj
+         Debug\Inventory.obj
+         Debug\Item.obj
+         Debug\Room.obj
+         Practice Review C++ Part 5.vcxproj -> C:\Users\gutty333\Documents\Visual Studio 2013\Projects\Practice Review C++ Part 5\Practice Review C++ Part 5\Debug\Practice Review C++ Part 5.exe
+     1>Done Building Project "C:\Users\gutty333\Documents\Visual Studio 2013\Projects\Practice Review C++ Part 5\Practice Review C++ Part 5\Practice Review C++ Part 5.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:02.51

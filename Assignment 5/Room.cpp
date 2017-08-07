@@ -112,7 +112,7 @@ void Hallway::simulate(Player* player)
 
 	cout << "Warning a/an " << enemy->getName() << " is planning to attack you" << endl;
 	cout << "You will enter combat against the " << enemy->getName() << endl;
-	cout << endl << "Stats for the " << enemy->getName() << endl;
+	cout << endl << "Stats for the " << enemy->getName() << ":";
 	enemy->displayStats();
 
 	// Allow the player to select any items, For example they can use a potential before combat to further increase their health
@@ -197,7 +197,7 @@ void Armory::simulate(Player* player)
 		cout << "Warning a/an " << enemy->getName() << " is planning to attack you" << endl;
 		cout << "Please be careful this enemy is very powerful and is said to have defeated many past heroes" << endl;
 		cout << "You will enter combat against the " << enemy->getName() << endl;
-		cout << endl << "Stats for the " << enemy->getName() << endl;
+		cout << endl << "Stats for the " << enemy->getName() << ":";
 		enemy->displayStats();
 
 		int choice;
@@ -264,7 +264,7 @@ void SecurityRoom::simulate(Player* player)
 	// Item the player will earn after solving the puzzle or defeating the enemies
 	// Note if the player already has this item, that is a signal that they have already visited this room
 	Item key("Laboratory Key", "Special key used to gain access to the castle's laboratory. This item is found in the security room", 0, false, false, false);
-	Item armor("White Knight Armor", "Armor made from steel. Heavy on the body but provides the best protection possible", 25, false, false, true);
+	Item armor("White Knight Armor", "Armor made from steel. Heavy on the body but provides the best protection possible", 20, false, false, true);
 
 	// Again this avoid repeating the simulation if the player revisits this room
 	// Here if they have the white armor this implies the players has already entered the laboratory room
@@ -286,7 +286,7 @@ void SecurityRoom::simulate(Player* player)
 		// Puzzle Section
 		while (count < 5)
 		{
-			cout << "Please guess what the code is. (Enter number from 1-15)" << endl;
+			cout << endl << "Please guess what the code is. (Enter number from 1-15)" << endl;
 			cin >> choice;
 
 			if (choice == num)
@@ -299,17 +299,23 @@ void SecurityRoom::simulate(Player* player)
 			}
 
 			count++;
-			cout << "Wrong, please try again you have " << 5 - count << " try/tries left" << endl;
+			if (5 - count == 0)
+			{
+				cout << endl << "Warning the alarm has been set, the correct number was " << num << endl;
+			}
+			else
+			{
+				cout << "Wrong, please try again you have " << 5 - count << " try/tries left" << endl;
+			}
 		}
 		// The player failed to solve puzzle and now must fight off 2 enemies
-		cout << "Warning the alarm has been set, the correct number was " << num  << endl;
 		cout << "You must defeat the enemies" << endl;
 
 		Character* enemy =  new Goblin;
 		Character* enemy2 = new Orc;
 
 		cout << "Warning a/an " << enemy->getName() << " and a/an " << enemy2->getName() << " are planning to attack you" << endl;
-		cout << endl << "Stats for the " << enemy->getName() << " and the " << enemy2->getName() << endl;
+		cout << endl << "Stats for the " << enemy->getName() << " and the " << enemy2->getName() << ":";
 		enemy->displayStats();
 		enemy2->displayStats();
 
@@ -396,7 +402,7 @@ void LabRoom::simulate(Player* player)
 	cout << endl << player->getName() << " has entered the " << name << endl;
 
 	Item key("Laboratory Key", "Special key used to gain access to the castle's laboratory. This is item is found in the security room", 0, false, false, false);
-	Item armor("White Knight Armor", "Armor made from steel. Heavy on the body but provides the best protection possible", 25, false, false, true);
+	Item armor("White Knight Armor", "Armor made from steel. Heavy on the body but provides the best protection possible", 20, false, false, true);
 	Item letter("Princess' Message", "Princess: Brave warrior I hope you find this message. I am located in the castle tower. Please be careful on your journey, The evil Sauron has some of his best minions guarding the castle tower. I would encourage you to visit the castle dungeon. To get to the castle dungeon, go back to the starting room. Than go left, up, right, and down.", 25, false, false, false);
 	
 	// Condition to avoid repetitive action
@@ -454,8 +460,8 @@ void CastleTower::simulate(Player* player)
 
 	// Fight against the 2 minions found in this room
 	cout << "Sauron: Minions take care of the intruder" << endl;
-	cout << "Warning a/an " << enemy->getName() << " and a/an " << enemy2->getName() << " are planning to attack you" << endl;
-	cout << endl << "Stats for the " << enemy->getName() << " and the " << enemy2->getName() << endl;
+	cout << "Warning a " << enemy->getName() << " and a " << enemy2->getName() << " are planning to attack you" << endl;
+	cout << endl << "Stats for the " << enemy->getName() << " and the " << enemy2->getName() << ":";
 	enemy->displayStats();
 	enemy2->displayStats();
 
@@ -518,8 +524,8 @@ void CastleTower::simulate(Player* player)
 	
 	// Fight against Sauron, the last boss
 	cout << "Sauron: Fine, I will deal with you myself" << endl;
-	cout << "Warning a " << lastBoss->getName() << " is planning to attack you" << endl;
-	cout << endl << "Stats for the " << lastBoss->getName() << endl;
+	cout << "Warning " << lastBoss->getName() << " is planning to attack you" << endl;
+	cout << endl << "Stats for the " << lastBoss->getName() << ":";
 	lastBoss->displayStats();
 
 	do
@@ -599,7 +605,7 @@ void Dungeon::simulate(Player* player)
 {
 	cout << endl << player->getName() << " has entered the " << name << endl;
 
-	Item sword("Master Sword", "This sword is said to have belong to a legendary warrior. Its shine will spark fear on you foes.", 30, false, true, false);
+	Item sword("Master Sword", "This sword is said to have belong to a legendary warrior. Its shine will spark fear on you foes.", 25, false, true, false);
 
 	if (player->searchItem(sword.getName()))
 	{

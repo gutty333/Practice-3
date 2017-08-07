@@ -57,10 +57,7 @@ bool Item::isWeapon()
 // Display Function
 void Item::displayInfo()
 {
-	string line;
-	line.assign(20, '-');
-	cout << line << endl;
-	cout << "Name: " << name << endl;
+	cout << endl << "Name: " << name << endl;
 	cout << "Description: " << description << endl;
 	if (value == 0)
 	{
@@ -70,5 +67,5 @@ void Item::displayInfo()
 	{
 		cout << "Value: " << value << endl;
 	}
-	cout << line << endl;
+	cout << endl;
 }
