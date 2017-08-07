@@ -11,7 +11,35 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Week 4 Program 3.cpp" />
+    <ClInclude Include="Assignment 5\Armory.h" />
+    <ClInclude Include="Assignment 5\Bokoblin.h" />
+    <ClInclude Include="Assignment 5\CastleTower.h" />
+    <ClInclude Include="Assignment 5\Character.h" />
+    <ClInclude Include="Assignment 5\DarkKnight.h" />
+    <ClInclude Include="Assignment 5\Dungeon.h" />
+    <ClInclude Include="Assignment 5\Game.h" />
+    <ClInclude Include="Assignment 5\Goblin.h" />
+    <ClInclude Include="Assignment 5\Hallway.h" />
+    <ClInclude Include="Assignment 5\Inventory.h" />
+    <ClInclude Include="Assignment 5\Item.h" />
+    <ClInclude Include="Assignment 5\LabRoom.h" />
+    <ClInclude Include="Assignment 5\LastBoss.h" />
+    <ClInclude Include="Assignment 5\Orc.h" />
+    <ClInclude Include="Assignment 5\Player.h" />
+    <ClInclude Include="Assignment 5\Room.h" />
+    <ClInclude Include="Assignment 5\RoomStructure.h" />
+    <ClInclude Include="Assignment 5\SecurityRoom.h" />
+    <ClInclude Include="Assignment 5\StartingRoom.h" />
+    <ClInclude Include="Assignment 5\Troll.h" />
+    <ClInclude Include="Assignment 5\Wizard.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Assignment 5\Assignment5.cpp" />
+    <ClCompile Include="Assignment 5\Character.cpp" />
+    <ClCompile Include="Assignment 5\Game.cpp" />
+    <ClCompile Include="Assignment 5\Inventory.cpp" />
+    <ClCompile Include="Assignment 5\Item.cpp" />
+    <ClCompile Include="Assignment 5\Room.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{5CFC1FC7-47C8-4412-B6FA-8B02D09554B8}</ProjectGuid>
