@@ -40,7 +40,7 @@ long FibonacciR(const int &n) {
 
 
 
-// Non tail recursive factorial. Code is from the slides
+// Non tail recursive factorial. Code is from the slides.
 long rfactorial(int n) 
 {
 	if (n == 1)
@@ -49,7 +49,7 @@ long rfactorial(int n)
 		return n * rfactorial(n - 1);
 }
 
-// Tail Recursive factorial. Code is from the slides
+// Tail Recursive factorial. Code is from the slides.
 long factorialHelper(int n, int result) {
 	if (n == 1)
 		return result;
